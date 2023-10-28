@@ -181,16 +181,16 @@ public class RearWheelDrive : MonoBehaviour
     private void GetTheWheels()
     {
         GameObject wheels = GetChildByName(this.gameObject, "Wheels");
-        FL.visualwheel = GetChildByName(wheels, "FL").transform;
-        FR.visualwheel = GetChildByName(wheels, "FR").transform;
-        BL.visualwheel = GetChildByName(wheels, "BL").transform;
-        BR.visualwheel = GetChildByName(wheels, "BR").transform;
+        FL.visualwheel = GetChildByName(wheels, "Tire_Front_L").transform;
+        FR.visualwheel = GetChildByName(wheels, "Tire_Front_R").transform;
+        BL.visualwheel = GetChildByName(wheels, "Tire_Back_L").transform;
+        BR.visualwheel = GetChildByName(wheels, "Tire_Back_R").transform;
 
-        GameObject colliders = GetChildByName(this.gameObject, "Colliders");
-        FL.wheelcollider = GetChildByName(colliders, "wcFL").GetComponent<WheelCollider>();
-        FR.wheelcollider = GetChildByName(colliders, "wcFR").GetComponent<WheelCollider>();
-        BL.wheelcollider = GetChildByName(colliders, "wcBL").GetComponent<WheelCollider>();
-        BR.wheelcollider = GetChildByName(colliders, "wcBR").GetComponent<WheelCollider>();
+        GameObject colliders = GetChildByName(this.gameObject, "Wheel Colliders");
+        FL.wheelcollider = GetChildByName(colliders, "WC_Tire_Front_L").GetComponent<WheelCollider>();
+        FR.wheelcollider = GetChildByName(colliders, "WC_Tire_Front_R").GetComponent<WheelCollider>();
+        BL.wheelcollider = GetChildByName(colliders, "WC_Tire_Back_L").GetComponent<WheelCollider>();
+        BR.wheelcollider = GetChildByName(colliders, "WC_Tire_Back_R").GetComponent<WheelCollider>();
     }
     private GameObject GetChildByName(GameObject go, string name)
     {
