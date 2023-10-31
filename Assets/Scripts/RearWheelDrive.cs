@@ -35,6 +35,8 @@ public class RearWheelDrive : MonoBehaviour
     public Gear_Info D;
 
     public Light[] lights = new Light[2];
+    public GameObject lightOn;
+    public GameObject lightOff;
 
     void Inactive_Gears() {
         P.active = false;
@@ -88,39 +90,7 @@ public class RearWheelDrive : MonoBehaviour
         GetTheWheels();
         Assign_Gear_Info();
     }
-    /*private void FixedUpdate()
-    {
-        Change_Gears();
-
-        //steer and accelerate car (wasd, arrows, leftanalog gamepad)
-        float vert = Input.GetAxis("Vertical");
-        vert = (vert < 0 ? 0 : vert);
-        vert *= (P.active || N.active ? 0 : 1);  //-1..0..1
-        vert *= (D.active ? 1 : -1);
-        float horz = Input.GetAxis("Horizontal");
-        FL.wheelcollider.steerAngle = horz * steer;
-        FR.wheelcollider.steerAngle = horz * steer;
-        BL.wheelcollider.motorTorque = vert * motor;
-        BR.wheelcollider.motorTorque = vert * motor;
-
-        //brake car
-        if (Input.GetButton("Fire1") == true) //leftctrl, mouseleftbutton, gamepad A
-        {
-            FL.wheelcollider.brakeTorque = brake;
-            FR.wheelcollider.brakeTorque = brake;
-            BL.wheelcollider.brakeTorque = brake;
-            BR.wheelcollider.brakeTorque = brake;
-        }
-        else
-        {
-            FL.wheelcollider.brakeTorque = 0;
-            FR.wheelcollider.brakeTorque = 0;
-            BL.wheelcollider.brakeTorque = 0;
-            BR.wheelcollider.brakeTorque = 0;
-        }
-
-        UpdateVisualWheels();
-    }*/
+    
     private void FixedUpdate()
     {
         Change_Gears();
@@ -137,8 +107,10 @@ public class RearWheelDrive : MonoBehaviour
             FR.wheelcollider.brakeTorque = 0;
             BL.wheelcollider.brakeTorque = 0;
             BR.wheelcollider.brakeTorque = 0;
-            foreach (Light light in lights)
-                light.enabled = false;
+            //foreach (Light light in lights)
+            //light.enabled = false;
+            lightOff.SetActive(true);
+            lightOn.SetActive(false);
         }
         else {
             vert = (vert < 0 ? vert * -1 : vert);
@@ -146,14 +118,17 @@ public class RearWheelDrive : MonoBehaviour
             FR.wheelcollider.brakeTorque = vert*brake;
             BL.wheelcollider.brakeTorque = vert*brake;
             BR.wheelcollider.brakeTorque = vert*brake;
-            foreach (Light light in lights)
-                light.enabled = true;
+            //foreach (Light light in lights)
+            //light.enabled = true;
+            lightOn.SetActive(true);
+            lightOff.SetActive(false);
         }
         
         float horz = Input.GetAxis("Horizontal");
         FL.wheelcollider.steerAngle = horz * steer;
         FR.wheelcollider.steerAngle = horz * steer;
-       
+
+        Debug.Log("Horizontal: "+horz.ToString());
 
         UpdateVisualWheels();
     }
