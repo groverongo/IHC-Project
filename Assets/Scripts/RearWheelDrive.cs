@@ -38,6 +38,8 @@ public class RearWheelDrive : MonoBehaviour
     public GameObject lightOn;
     public GameObject lightOff;
 
+    public HingeJoint steering_wheel;
+
     void Inactive_Gears() {
         P.active = false;
         R.active = false;
@@ -45,9 +47,27 @@ public class RearWheelDrive : MonoBehaviour
         D.active = false;
     }
 
-    void Gear_Active(ref Gear_Info gear_obj) {
+    public void Gear_Active(ref Gear_Info gear_obj) {
         Inactive_Gears();
         gear_obj.active = true;
+    }
+
+    public void Gear_Change_P() {
+        Gear_Active(ref P);
+    }
+
+    public void Gear_Change_N()
+    {
+        Gear_Active(ref N);
+    }
+
+    public void Gear_Change_R()
+    {
+        Gear_Active(ref R);
+    }
+    public void Gear_Change_D()
+    {
+        Gear_Active(ref D);
     }
 
     void Change_Gears() {
@@ -94,6 +114,7 @@ public class RearWheelDrive : MonoBehaviour
     private void FixedUpdate()
     {
         Change_Gears();
+        Debug.Log("Steering-Wheel Angle: " + steering_wheel.angle.ToString());
 
         //steer and accelerate car (wasd, arrows, leftanalog gamepad)
         float vert = Input.GetAxis("Vertical");
@@ -109,6 +130,7 @@ public class RearWheelDrive : MonoBehaviour
             BR.wheelcollider.brakeTorque = 0;
             //foreach (Light light in lights)
             //light.enabled = false;
+            
             lightOff.SetActive(true);
             lightOn.SetActive(false);
         }

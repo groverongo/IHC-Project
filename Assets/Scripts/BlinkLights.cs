@@ -11,6 +11,7 @@ public class BlinkLights : MonoBehaviour
     public KeyCode left_keyboard;
     public KeyCode hazard_keyboard;
 
+    public HingeJoint directional_lever;
 
     // Lights times
     public float timer;
@@ -21,6 +22,8 @@ public class BlinkLights : MonoBehaviour
     public bool toggle_right = false;
     public bool toggle_left = false;
     public bool toggle_hazard = false;
+
+    private bool right_lever_first = false;
 
 
     private void Start()
@@ -73,7 +76,7 @@ public class BlinkLights : MonoBehaviour
 
     void Right_Lights_Blink()
     {
-        if (Input.GetKeyDown(right_keyboard))
+        if (Input.GetKeyDown(right_keyboard) || (directional_lever.angle < -30 && !toggle_right) || (directional_lever.angle >= -30 && directional_lever.angle <= 30 && toggle_right))
         {
             toggle_left = false;
             toggle_right = !toggle_right;
@@ -82,7 +85,7 @@ public class BlinkLights : MonoBehaviour
     }
     void Left_Lights_Blink()
     {
-        if (Input.GetKeyDown(left_keyboard))
+        if (Input.GetKeyDown(left_keyboard) || (directional_lever.angle > 30 && !toggle_left) || (directional_lever.angle >= -30 && directional_lever.angle <= 30 && toggle_left))
         {
             toggle_right = false;
             toggle_left = !toggle_left;
@@ -98,5 +101,6 @@ public class BlinkLights : MonoBehaviour
         if (toggle_right || toggle_left || toggle_hazard)
             Blink_Light();
 
+        Debug.Log("Directional Angle: "+directional_lever.angle.ToString());
     }
 }
