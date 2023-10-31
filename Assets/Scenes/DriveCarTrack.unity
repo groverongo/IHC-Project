@@ -274,6 +274,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9234b507bb1d424449c1997fe6847ae0, type: 3}
+--- !u!1001 &1079350832
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5753254729133588699, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_Name
+      value: SportsVehicleRed_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9307114
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.5415964
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154146831686835778, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1aec20ef580a1a42ba55c8619d482ad, type: 3}
 --- !u!1001 &1311120313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -362,6 +419,10 @@ PrefabInstance:
     - target: {fileID: 2017510101675444124, guid: 3138f14b9a8c3054daeea3a2ff0e4738, type: 3}
       propertyPath: m_Name
       value: SportsVehicleRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017510101675444124, guid: 3138f14b9a8c3054daeea3a2ff0e4738, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3293234643702587395, guid: 3138f14b9a8c3054daeea3a2ff0e4738, type: 3}
       propertyPath: m_LocalPosition.x
@@ -478,3 +539,4 @@ SceneRoots:
   - {fileID: 8734935646945433788}
   - {fileID: 1311120313}
   - {fileID: 4216308248549498044}
+  - {fileID: 1079350832}
