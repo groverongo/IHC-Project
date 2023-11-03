@@ -28,6 +28,12 @@ public class LightsLever : MonoBehaviour
         light_right = false;
     }
 
+    public void DebugPrint(float val)
+    {
+        Debug.Log("ValLights: "+val.ToString());
+    }
+
+
     void Update()
     {
         Debug.Log("Lights: " + light_left.ToString() + "-" + light_right.ToString());

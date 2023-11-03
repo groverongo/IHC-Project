@@ -23,6 +23,7 @@ public class BlinkLights : MonoBehaviour
 
     private bool right_lever_first = false;
 
+    public LightsLever lights_lever;
 
     private void Start()
     {
@@ -74,7 +75,7 @@ public class BlinkLights : MonoBehaviour
 
     void Right_Lights_Blink()
     {
-        if (Input.GetKeyDown(right_keyboard))
+        if (Input.GetKeyDown(right_keyboard) || (lights_lever.light_right && !toggle_right) || (!lights_lever.light_left && !lights_lever.light_right && toggle_right))
         {
             toggle_left = false;
             toggle_right = !toggle_right;
@@ -83,7 +84,7 @@ public class BlinkLights : MonoBehaviour
     }
     void Left_Lights_Blink()
     {
-        if (Input.GetKeyDown(left_keyboard) )
+        if (Input.GetKeyDown(left_keyboard) || (lights_lever.light_left && !toggle_left) || (!lights_lever.light_left && !lights_lever.light_right && toggle_left))
         {
             toggle_right = false;
             toggle_left = !toggle_left;
