@@ -38,6 +38,8 @@ public class RearWheelDrive : MonoBehaviour
     public GameObject lightOn;
     public GameObject lightOff;
 
+    public SteeringWheel CarWheel;
+
     //public HingeJoint steering_wheel;
 
     void Inactive_Gears() {
@@ -147,6 +149,7 @@ public class RearWheelDrive : MonoBehaviour
         }
         
         float horz = Input.GetAxis("Horizontal");
+        horz = CarWheel.GetSteer();
         FL.wheelcollider.steerAngle = horz * steer;
         FR.wheelcollider.steerAngle = horz * steer;
 
