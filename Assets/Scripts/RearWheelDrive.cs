@@ -38,7 +38,7 @@ public class RearWheelDrive : MonoBehaviour
     public GameObject lightOn;
     public GameObject lightOff;
 
-    public HingeJoint steering_wheel;
+    //public HingeJoint steering_wheel;
 
     void Inactive_Gears() {
         P.active = false;
@@ -114,7 +114,7 @@ public class RearWheelDrive : MonoBehaviour
     private void FixedUpdate()
     {
         Change_Gears();
-        Debug.Log("Steering-Wheel Angle: " + steering_wheel.angle.ToString());
+        //Debug.Log("Steering-Wheel Angle: " + steering_wheel.angle.ToString());
 
         //steer and accelerate car (wasd, arrows, leftanalog gamepad)
         float vert = Input.GetAxis("Vertical");
