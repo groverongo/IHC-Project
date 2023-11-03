@@ -40,6 +40,8 @@ public class RearWheelDrive : MonoBehaviour
 
     public SteeringWheel CarWheel;
 
+    public HandBrake CarHandBrake;
+
     //public HingeJoint steering_wheel;
 
     void Inactive_Gears() {
@@ -144,6 +146,16 @@ public class RearWheelDrive : MonoBehaviour
             BR.wheelcollider.brakeTorque = vert*brake;
             //foreach (Light light in lights)
             //light.enabled = true;
+            lightOn.SetActive(true);
+            lightOff.SetActive(false);
+        }
+
+        if (CarHandBrake.active) {
+            vert = (vert < 0 ? vert * -1 : vert);
+            FL.wheelcollider.brakeTorque = vert * brake;
+            FR.wheelcollider.brakeTorque = vert * brake;
+            BL.wheelcollider.brakeTorque = vert * brake;
+            BR.wheelcollider.brakeTorque = vert * brake;
             lightOn.SetActive(true);
             lightOff.SetActive(false);
         }
