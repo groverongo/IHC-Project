@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BlinkLights : MonoBehaviour
@@ -25,10 +26,15 @@ public class BlinkLights : MonoBehaviour
 
     public LightsLever lights_lever;
 
+    public GameObject LLight_Display;
+    public GameObject RLight_Display;
+
     private void Start()
     {
         // Init timer
         timer = blink_time;
+        RLight_Display.SetActive(false);
+        LLight_Display.SetActive(false);
     }
 
     // Turn Lights on and off
@@ -41,10 +47,12 @@ public class BlinkLights : MonoBehaviour
         foreach (Light light in right_lights)
         {
             light.enabled = right_on;
+            RLight_Display.SetActive(right_on);
         }
         foreach (Light light in left_lights)
         {
             light.enabled = left_on;
+            LLight_Display.SetActive(left_on);
         }
     }
 
