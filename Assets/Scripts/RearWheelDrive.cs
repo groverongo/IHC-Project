@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class RearWheelDrive : MonoBehaviour
@@ -38,8 +39,18 @@ public class RearWheelDrive : MonoBehaviour
     public GameObject lightOn;
     public GameObject lightOff;
 
-    public HingeJoint steering_wheel;
+    public SteeringWheel CarWheel;
 
+    public HandBrake CarHandBrake;
+
+    public TextMeshProUGUI Gear_Display;
+    public TextMeshProUGUI Speed_Display;
+
+    //public HingeJoint steering_wheel;
+    private void Update_Speed()
+    {
+        Speed_Display.text = ( (int) (BR.wheelcollider.rpm * (BR.wheelcollider.radius * 2.0f * 3.14f) * 60 / 100)).ToString();
+    }
     void Inactive_Gears() {
         P.active = false;
         R.active = false;
@@ -53,26 +64,33 @@ public class RearWheelDrive : MonoBehaviour
     }
 
     public void Gear_Change_P() {
+        Gear_Display.text = P.letter.ToString();
         Gear_Active(ref P);
     }
 
     public void Gear_Change_N()
     {
+        Gear_Display.text = N.letter.ToString();
+
         Gear_Active(ref N);
     }
 
     public void Gear_Change_R()
     {
+        Gear_Display.text = R.letter.ToString();
         Gear_Active(ref R);
     }
     public void Gear_Change_D()
     {
+        Gear_Display.text = D.letter.ToString();
+
         Gear_Active(ref D);
     }
 
     void Change_Gears() {
         if (Input.GetKeyDown(P.keyboard))
         {
+            
             Gear_Active(ref P);
             Debug.Log("P: " + P.active + " R: " + R.active + " N: " + N.active + " D: " + D.active);
         }
@@ -109,12 +127,13 @@ public class RearWheelDrive : MonoBehaviour
     {
         GetTheWheels();
         Assign_Gear_Info();
+        Gear_Display.text = "No Gear";
     }
     
     private void FixedUpdate()
     {
         Change_Gears();
-        Debug.Log("Steering-Wheel Angle: " + steering_wheel.angle.ToString());
+        //Debug.Log("Steering-Wheel Angle: " + steering_wheel.angle.ToString());
 
         //steer and accelerate car (wasd, arrows, leftanalog gamepad)
         float vert = Input.GetAxis("Vertical");
@@ -145,14 +164,26 @@ public class RearWheelDrive : MonoBehaviour
             lightOn.SetActive(true);
             lightOff.SetActive(false);
         }
+
+        if (CarHandBrake.active) {
+            vert = (vert < 0 ? vert * -1 : vert);
+            FL.wheelcollider.brakeTorque = vert * brake;
+            FR.wheelcollider.brakeTorque = vert * brake;
+            BL.wheelcollider.brakeTorque = vert * brake;
+            BR.wheelcollider.brakeTorque = vert * brake;
+            lightOn.SetActive(true);
+            lightOff.SetActive(false);
+        }
         
         float horz = Input.GetAxis("Horizontal");
+        horz = CarWheel.GetSteer();
         FL.wheelcollider.steerAngle = horz * steer;
         FR.wheelcollider.steerAngle = horz * steer;
 
         Debug.Log("Horizontal: "+horz.ToString());
 
         UpdateVisualWheels();
+        Update_Speed();
     }
     private void UpdateVisualWheels()
     {

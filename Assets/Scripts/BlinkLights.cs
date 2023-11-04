@@ -1,17 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BlinkLights : MonoBehaviour
 {
+
+    public ButtonEmergency emergency;
 
     public Light[] right_lights = new Light[2];
     public Light[] left_lights = new Light[2];
     public KeyCode right_keyboard;
     public KeyCode left_keyboard;
     public KeyCode hazard_keyboard;
-
-    public HingeJoint directional_lever;
 
     // Lights times
     public float timer;
@@ -25,12 +27,19 @@ public class BlinkLights : MonoBehaviour
 
     private bool right_lever_first = false;
 
+    public LightsLever lights_lever;
+
+    public GameObject LLight_Display;
+    public GameObject RLight_Display;
 
     private void Start()
     {
         // Init timer
         timer = blink_time;
+        RLight_Display.SetActive(false);
+        LLight_Display.SetActive(false);
     }
+
 
     // Turn Lights on and off
     void UpdateLights()
@@ -42,10 +51,12 @@ public class BlinkLights : MonoBehaviour
         foreach (Light light in right_lights)
         {
             light.enabled = right_on;
+            RLight_Display.SetActive(right_on);
         }
         foreach (Light light in left_lights)
         {
             light.enabled = left_on;
+            LLight_Display.SetActive(left_on);
         }
     }
 
@@ -67,16 +78,21 @@ public class BlinkLights : MonoBehaviour
 
     void Hazard_Lights_Blink()
     {
-        if (Input.GetKeyDown(hazard_keyboard))
+        toggle_hazard = emergency.active;
+        UpdateLights();
+        /*
+        if (emergency.active ||Input.GetKeyDown(hazard_keyboard))
         {
             toggle_hazard = !toggle_hazard;
             UpdateLights();
         }
+        */
+
     }
 
     void Right_Lights_Blink()
     {
-        if (Input.GetKeyDown(right_keyboard) || (directional_lever.angle < -30 && !toggle_right) || (directional_lever.angle >= -30 && directional_lever.angle <= 30 && toggle_right))
+        if (Input.GetKeyDown(right_keyboard) || (lights_lever.light_right && !toggle_right) || (!lights_lever.light_left && !lights_lever.light_right && toggle_right))
         {
             toggle_left = false;
             toggle_right = !toggle_right;
@@ -85,7 +101,7 @@ public class BlinkLights : MonoBehaviour
     }
     void Left_Lights_Blink()
     {
-        if (Input.GetKeyDown(left_keyboard) || (directional_lever.angle > 30 && !toggle_left) || (directional_lever.angle >= -30 && directional_lever.angle <= 30 && toggle_left))
+        if (Input.GetKeyDown(left_keyboard) || (lights_lever.light_left && !toggle_left) || (!lights_lever.light_left && !lights_lever.light_right && toggle_left))
         {
             toggle_right = false;
             toggle_left = !toggle_left;
@@ -101,6 +117,6 @@ public class BlinkLights : MonoBehaviour
         if (toggle_right || toggle_left || toggle_hazard)
             Blink_Light();
 
-        Debug.Log("Directional Angle: "+directional_lever.angle.ToString());
+        Debug.Log("Directional Angle: ");
     }
 }
