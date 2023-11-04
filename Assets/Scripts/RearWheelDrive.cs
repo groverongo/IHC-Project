@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class RearWheelDrive : MonoBehaviour
@@ -42,6 +43,8 @@ public class RearWheelDrive : MonoBehaviour
 
     public HandBrake CarHandBrake;
 
+    public TextMeshProUGUI Gear_Display;
+
     //public HingeJoint steering_wheel;
 
     void Inactive_Gears() {
@@ -57,26 +60,33 @@ public class RearWheelDrive : MonoBehaviour
     }
 
     public void Gear_Change_P() {
+        Gear_Display.text = P.letter.ToString();
         Gear_Active(ref P);
     }
 
     public void Gear_Change_N()
     {
+        Gear_Display.text = N.letter.ToString();
+
         Gear_Active(ref N);
     }
 
     public void Gear_Change_R()
     {
+        Gear_Display.text = R.letter.ToString();
         Gear_Active(ref R);
     }
     public void Gear_Change_D()
     {
+        Gear_Display.text = D.letter.ToString();
+
         Gear_Active(ref D);
     }
 
     void Change_Gears() {
         if (Input.GetKeyDown(P.keyboard))
         {
+            
             Gear_Active(ref P);
             Debug.Log("P: " + P.active + " R: " + R.active + " N: " + N.active + " D: " + D.active);
         }
@@ -113,6 +123,7 @@ public class RearWheelDrive : MonoBehaviour
     {
         GetTheWheels();
         Assign_Gear_Info();
+        Gear_Display.text = "No Gear";
     }
     
     private void FixedUpdate()
