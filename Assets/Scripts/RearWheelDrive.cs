@@ -44,9 +44,13 @@ public class RearWheelDrive : MonoBehaviour
     public HandBrake CarHandBrake;
 
     public TextMeshProUGUI Gear_Display;
+    public TextMeshProUGUI Speed_Display;
 
     //public HingeJoint steering_wheel;
-
+    private void Update_Speed()
+    {
+        Speed_Display.text = ( (int) (BR.wheelcollider.rpm * (BR.wheelcollider.radius * 2.0f * 3.14f) * 60 / 100)).ToString();
+    }
     void Inactive_Gears() {
         P.active = false;
         R.active = false;
@@ -179,6 +183,7 @@ public class RearWheelDrive : MonoBehaviour
         Debug.Log("Horizontal: "+horz.ToString());
 
         UpdateVisualWheels();
+        Update_Speed();
     }
     private void UpdateVisualWheels()
     {

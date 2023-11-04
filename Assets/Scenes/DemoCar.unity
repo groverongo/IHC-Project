@@ -10135,6 +10135,7 @@ MonoBehaviour:
   CarWheel: {fileID: 1426894930}
   CarHandBrake: {fileID: 1897788256}
   Gear_Display: {fileID: 382200335}
+  Speed_Display: {fileID: 1037423431}
 --- !u!108 &7902301208083253121
 Light:
   m_ObjectHideFlags: 0
