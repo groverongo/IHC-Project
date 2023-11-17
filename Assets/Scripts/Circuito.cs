@@ -17,13 +17,13 @@ public class Circuito : MonoBehaviour
         if (posiciones.Length > 0)
         {
             // Instantiate the carro prefab.
-            GameObject carroInstance = Instantiate(carroPrefab);
+            GameObject carroInstance = Instantiate(carroPrefab, posiciones[0].position, posiciones[0].rotation);
 
             // Set the position of the top-level parent of the carro instance.
-            carroInstance.transform.position = posiciones[0].position;
+            //carroInstance.transform.position = posiciones[0].position;
 
             // Adjust the local positions of the children to maintain their relative positions.
-            AdjustChildrenLocalPositions(carroInstance.transform);
+            //AdjustChildrenLocalPositions(carroInstance.transform);
         }
         else
         {
