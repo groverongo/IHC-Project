@@ -11,6 +11,10 @@ public class Circuito : MonoBehaviour
         InstantiateAndPositionCarro(EleccionRuta.indice);
     }
 
+    void Update()
+    { 
+    }
+
     void InstantiateAndPositionCarro(int indice_ruta)
     {
         // Check if there is at least one position.
