@@ -559,7 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2973269000506311368}
   m_Layer: 0
-  m_Name: CAR_PREFAB_MINIMAPA
+  m_Name: CARRO_PREFAB_FINAL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2305,6 +2305,7 @@ GameObject:
   - component: {fileID: 5568139215913205933}
   - component: {fileID: 9001559048533314271}
   - component: {fileID: 6177716283667473032}
+  - component: {fileID: 14134234912627824}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -2448,6 +2449,19 @@ MonoBehaviour:
   lights_lever: {fileID: 8432599075712139556}
   LLight_Display: {fileID: 6342083614682241889}
   RLight_Display: {fileID: 622583918640538161}
+--- !u!114 &14134234912627824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818072780801263150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7429e229897efe548b47b334b23d12c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  engine_on: {fileID: 8300000, guid: e052e12eedf1b8c4c969d7fff5bbee80, type: 3}
 --- !u!1 &8261107787165540878
 GameObject:
   m_ObjectHideFlags: 0
