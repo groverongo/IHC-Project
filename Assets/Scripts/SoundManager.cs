@@ -24,7 +24,7 @@ public class Sound_Manager : MonoBehaviour
         Light_Blinking.audioSource.volume = volume*0.2f;
         Light_Blinking.audioSource.loop = true;
     }
-    void toggle_blinking(bool toggle) {
+    public void toggle_blinking(bool toggle) {
 
         Debug.Log("TOGGLE BLINK SOUND");
 
@@ -53,7 +53,7 @@ public class Sound_Manager : MonoBehaviour
         Acceleration.audioSource.volume = volume;
     }
 
-    void acceleration_gain(float axis) {
+    public void acceleration_gain(float axis) {
         if (axis > 0)
         {
             Acceleration.audioSource.volume = volume;
@@ -83,7 +83,7 @@ public class Sound_Manager : MonoBehaviour
         Brake.audioSource.volume = volume;
     }
 
-    void brake_gain(float axis) {
+    public void brake_gain(float axis) {
         if (axis < 0)
         {
             Brake.audioSource.volume = volume;

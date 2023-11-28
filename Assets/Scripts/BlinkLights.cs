@@ -32,12 +32,15 @@ public class BlinkLights : MonoBehaviour
     public GameObject LLight_Display;
     public GameObject RLight_Display;
 
+    private Sound_Manager this_sound_manager;
+
     private void Start()
     {
         // Init timer
         timer = blink_time;
         RLight_Display.SetActive(false);
         LLight_Display.SetActive(false);
+        this_sound_manager = GetComponent<Sound_Manager>();
     }
 
 
@@ -47,6 +50,8 @@ public class BlinkLights : MonoBehaviour
         // Update lights
         bool left_on = (toggle_left || toggle_hazard) && lights_on;
         bool right_on = (toggle_right || toggle_hazard) && lights_on;
+
+        this_sound_manager.toggle_blinking(left_on || right_on);
 
         foreach (Light light in right_lights)
         {
