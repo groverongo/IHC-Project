@@ -2306,7 +2306,6 @@ GameObject:
   - component: {fileID: 9001559048533314271}
   - component: {fileID: 6177716283667473032}
   - component: {fileID: 14134234912627824}
-  - component: {fileID: 4151892098911425733}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -2462,21 +2461,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7429e229897efe548b47b334b23d12c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundClip: {fileID: 8300000, guid: e052e12eedf1b8c4c969d7fff5bbee80, type: 3}
---- !u!114 &4151892098911425733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7818072780801263150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10a12570fc161204d89a185b2876a30f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accelerate_soundClip: {fileID: 8300000, guid: 22f72990b5207e6439d4bfaf882ca9f1, type: 3}
-  brake_soundClip: {fileID: 8300000, guid: 2b86aceb65e76f3498a98d7f89d46eb0, type: 3}
+  Engine_Start:
+    soundClip: {fileID: 8300000, guid: e052e12eedf1b8c4c969d7fff5bbee80, type: 3}
+    audioSource: {fileID: 0}
+  Acceleration:
+    soundClip: {fileID: 8300000, guid: 22f72990b5207e6439d4bfaf882ca9f1, type: 3}
+    audioSource: {fileID: 0}
+  Brake:
+    soundClip: {fileID: 8300000, guid: 2b86aceb65e76f3498a98d7f89d46eb0, type: 3}
+    audioSource: {fileID: 0}
 --- !u!1 &8261107787165540878
 GameObject:
   m_ObjectHideFlags: 0
