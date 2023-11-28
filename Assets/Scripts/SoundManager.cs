@@ -13,8 +13,32 @@ public class Sound_Manager : MonoBehaviour
     public Sound_Declaration Engine_Start;
     public Sound_Declaration Acceleration;
     public Sound_Declaration Brake;
+    public Sound_Declaration Light_Blinking;
     private float volume= 1.0f;
     private float fadeOutTime = 1.0f;
+
+    void initialize_light_blinking()
+    {
+        Light_Blinking.audioSource = gameObject.AddComponent<AudioSource>();
+        Light_Blinking.audioSource.clip = Light_Blinking.soundClip;
+        Light_Blinking.audioSource.volume = volume*0.2f;
+        Light_Blinking.audioSource.loop = true;
+    }
+    void toggle_blinking(bool toggle) {
+
+        Debug.Log("TOGGLE BLINK SOUND");
+
+        if (!toggle)
+            return;
+
+        if (!Light_Blinking.audioSource.isPlaying)
+        {
+            Light_Blinking.audioSource.Play();
+        }
+        else {
+            Light_Blinking.audioSource.Stop();
+        }
+    }
 
     void initialize_engine_start() {
         Engine_Start.audioSource = gameObject.AddComponent<AudioSource>();
@@ -87,6 +111,7 @@ public class Sound_Manager : MonoBehaviour
         initialize_engine_start();
         initialize_acceleration();
         initialize_brake();
+        initialize_light_blinking();
     }
 
     private void Update()
@@ -94,5 +119,7 @@ public class Sound_Manager : MonoBehaviour
         float vertical_input = Input.GetAxis("Vertical");
         acceleration_gain(vertical_input);
         brake_gain(vertical_input);
+
+        toggle_blinking(Input.GetKeyDown(KeyCode.G));
     }
 }

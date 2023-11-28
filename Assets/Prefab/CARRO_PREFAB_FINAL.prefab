@@ -2470,6 +2470,9 @@ MonoBehaviour:
   Brake:
     soundClip: {fileID: 8300000, guid: 2b86aceb65e76f3498a98d7f89d46eb0, type: 3}
     audioSource: {fileID: 0}
+  Light_Blinking:
+    soundClip: {fileID: 8300000, guid: 7137bd5f01b4d0a4092d9c05a0f602ec, type: 3}
+    audioSource: {fileID: 0}
 --- !u!1 &8261107787165540878
 GameObject:
   m_ObjectHideFlags: 0
