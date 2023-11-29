@@ -34,6 +34,22 @@ public class BlinkLights : MonoBehaviour
 
     private Sound_Manager this_sound_manager;
 
+    ButtonEmergency ButtonToggle;
+
+    private GameObject GetChildByName(GameObject go, string name)
+    {
+        for (int i = 0; i < go.transform.childCount; i++)
+        {
+            if (go.transform.GetChild(i).name == name)  //case sensitive
+            {
+                return go.transform.GetChild(i).gameObject;
+            }
+        }
+
+        Debug.LogError("ERR: Could not find child gameobject " + name + ". Check spelling and case.");
+        return null;
+    }
+
     private void Start()
     {
         // Init timer
@@ -41,6 +57,9 @@ public class BlinkLights : MonoBehaviour
         RLight_Display.SetActive(false);
         LLight_Display.SetActive(false);
         this_sound_manager = GetComponent<Sound_Manager>();
+
+
+        ButtonToggle = GetChildByName(GetChildByName(this.gameObject, "Interactables"), "ButtonToggle").GetComponent<ButtonEmergency>();
     }
 
 
@@ -51,7 +70,6 @@ public class BlinkLights : MonoBehaviour
         bool left_on = (toggle_left || toggle_hazard) && lights_on;
         bool right_on = (toggle_right || toggle_hazard) && lights_on;
 
-        this_sound_manager.toggle_blinking(left_on || right_on);
 
         foreach (Light light in right_lights)
         {
@@ -116,6 +134,10 @@ public class BlinkLights : MonoBehaviour
 
     void Update()
     {
+
+        Debug.Log("CHILD BUTTON TOGGLE ACTIVE: "+ButtonToggle.active.ToString());
+        this_sound_manager.toggle_blinking(ButtonToggle.active);
+
         Right_Lights_Blink();
         Left_Lights_Blink();
         Hazard_Lights_Blink();
