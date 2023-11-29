@@ -136,7 +136,7 @@ public class BlinkLights : MonoBehaviour
     {
 
         Debug.Log("CHILD BUTTON TOGGLE ACTIVE: "+ButtonToggle.active.ToString());
-        this_sound_manager.toggle_blinking(ButtonToggle.active);
+        this_sound_manager.toggle_blinking(ButtonToggle.active || lights_lever.light_left || lights_lever.light_right);
 
         Right_Lights_Blink();
         Left_Lights_Blink();
