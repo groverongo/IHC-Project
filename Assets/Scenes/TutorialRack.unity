@@ -435,7 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1500e8d469342cd47af7c16e3bfe8ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goBackKey: 92
+  goBackKey: 275
+  resetKey: 276
   confirmText: {fileID: 283560592}
 --- !u!1 &707918986
 GameObject:
