@@ -24,7 +24,13 @@ public class GoBack : MonoBehaviour
         if(confirm){
 
             //go back to previous scene
+            // SceneManager.LoadScene("LightingBase", LoadSceneMode.Single);
+
+
             SceneManager.LoadScene("MenuFinalFinal");
+            // SceneManager.LoadSceneAsync("MenuFinalFinal", LoadSceneMode.Additive);
+
+
             confirm = false;
             confirmText.SetActive(false);
 

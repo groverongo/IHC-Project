@@ -58,7 +58,8 @@ public class TutorialSteps : MonoBehaviour
 
 
         if(prevStep >= 0){
-            stepsFrames[currentStep].SetActive(false);
+            if(currentStep < stepsFrames.Length)
+                stepsFrames[currentStep].SetActive(false);
             Debug.Log("que2");
 
             currentStep = prevStep;
@@ -70,18 +71,19 @@ public class TutorialSteps : MonoBehaviour
 
     public void NextStep()
     {
-        int nextStep = (currentStep + 1) % stepsFrames.Length;
+
+        if(currentStep == stepsFrames.Length)return;
+        
+        int nextStep = (currentStep + 1);
 
         Debug.Log(nextStep.ToString());
 
-        if(nextStep != 0)
-        {
 
-            stepsFrames[currentStep].SetActive(false);
-            Debug.Log("que");
-            currentStep = nextStep;
+        stepsFrames[currentStep].SetActive(false);
+        Debug.Log("que");
+        currentStep = nextStep;
+        if(currentStep < stepsFrames.Length)
             stepsFrames[currentStep].SetActive(true);
-        }
     }
 
     // Update is called once per frame

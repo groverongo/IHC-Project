@@ -143,12 +143,17 @@ public class RearWheelDrive : MonoBehaviour
         //steer and accelerate car (wasd, arrows, leftanalog gamepad)
         float vert = Input.GetAxis("Vertical");
 
-        vert *= (P.active || N.active ? 0 : 1);  //-1..0..1
+        int currentVel = ( (int) (BR.wheelcollider.rpm * (BR.wheelcollider.radius * 2.0f * 3.14f) * 60 / 100));
 
+
+        Debug.Log("vel es: " + currentVel.ToString() );
+
+        vert *= (P.active || N.active ? 0 : 1);  //-1..0..1
         this_sound_manager.acceleration_gain(vert);
         this_sound_manager.brake_gain(vert);
         if (vert >= 0)
         {
+
             vert *= (D.active ? 1 : -1);
             BL.wheelcollider.motorTorque = vert * motor;
             BR.wheelcollider.motorTorque = vert * motor;
@@ -164,6 +169,7 @@ public class RearWheelDrive : MonoBehaviour
         }
         else {
             vert = (vert < 0 ? vert * -1 : vert);
+
             FL.wheelcollider.brakeTorque = vert*brake;
             FR.wheelcollider.brakeTorque = vert*brake;
             BL.wheelcollider.brakeTorque = vert*brake;

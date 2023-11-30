@@ -35,10 +35,17 @@ public class EleccionRuta : MonoBehaviour
         // int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
         // SceneManager.LoadScene(nextSceneIndex);
         SceneManager.LoadScene("Circuito");
+
+        // SceneManager.LoadScene("LightingBase", LoadSceneMode.Single);
+
+        // SceneManager.LoadSceneAsync("Circuito", LoadSceneMode.Additive);
     }
 
     public void LoadTutorialScene(){
 
+
+        // SceneManager.LoadScene("TutorialRack");
+        // SceneManager.LoadScene("LightingBase", LoadSceneMode.Single);
 
         SceneManager.LoadScene("TutorialRack");
     }
