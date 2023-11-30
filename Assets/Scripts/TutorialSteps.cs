@@ -41,6 +41,8 @@ public class TutorialSteps : MonoBehaviour
                 // Set the anchored position (you can modify these values)
                 textRectTransform.anchoredPosition3D = new Vector3(101.5f, -71.3f, 0f);
                 textObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                //set all rotation to 0
+                textRectTransform.localRotation = Quaternion.Euler(0, 0, 0);
 
             }
 

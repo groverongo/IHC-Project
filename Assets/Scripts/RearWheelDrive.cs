@@ -90,6 +90,7 @@ public class RearWheelDrive : MonoBehaviour
     }
 
     void Change_Gears() {
+        Debug.Log("porque no se cambia ptm");
         if (Input.GetKeyDown(P.keyboard))
         {
             

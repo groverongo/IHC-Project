@@ -26,20 +26,29 @@ public class EleccionRuta : MonoBehaviour
     }
 
 
-    private void LoadNextScene()
+    private void LoadCircuito()
     {
         // Get the current scene index
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        // int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         // Load the next scene by incrementing the current scene index
-        int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
-        SceneManager.LoadScene(nextSceneIndex);
+        // int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        // SceneManager.LoadScene(nextSceneIndex);
+        SceneManager.LoadScene("Circuito");
     }
+
+    public void LoadTutorialScene(){
+
+
+        SceneManager.LoadScene("TutorialRack");
+    }
+
+
 
     public void SetRuta(int ruta) {
         indice = ruta;
         Debug.Log("Set Ruta: "+indice.ToString());
-        LoadNextScene();
+        LoadCircuito();
     }
 
     void Start()
@@ -47,3 +56,4 @@ public class EleccionRuta : MonoBehaviour
         SetMenu(0);
     }
 }
+
