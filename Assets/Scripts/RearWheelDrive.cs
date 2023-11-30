@@ -46,6 +46,8 @@ public class RearWheelDrive : MonoBehaviour
     public TextMeshProUGUI Gear_Display;
     public TextMeshProUGUI Speed_Display;
 
+    private Sound_Manager this_sound_manager;
+
     //public HingeJoint steering_wheel;
     private void Update_Speed()
     {
@@ -128,6 +130,8 @@ public class RearWheelDrive : MonoBehaviour
         GetTheWheels();
         Assign_Gear_Info();
         Gear_Display.text = "No Gear";
+
+        this_sound_manager = GetComponent<Sound_Manager>();
     }
     
     private void FixedUpdate()
@@ -137,7 +141,11 @@ public class RearWheelDrive : MonoBehaviour
 
         //steer and accelerate car (wasd, arrows, leftanalog gamepad)
         float vert = Input.GetAxis("Vertical");
+
         vert *= (P.active || N.active ? 0 : 1);  //-1..0..1
+
+        this_sound_manager.acceleration_gain(vert);
+        this_sound_manager.brake_gain(vert);
         if (vert >= 0)
         {
             vert *= (D.active ? 1 : -1);
