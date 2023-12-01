@@ -356,11 +356,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6300944853428261251, guid: 8d74cd50e88710848899b991d17822b3, type: 3}
       propertyPath: grabOffset
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6300944853428261251, guid: 8d74cd50e88710848899b991d17822b3, type: 3}
       propertyPath: followTracking
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

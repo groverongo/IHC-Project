@@ -160,6 +160,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5545032522231983951}
     m_Modifications:
+    - target: {fileID: 462465989228948365, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: applyToAxis.zState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 462465989228948365, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: sourceMultiplier.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 955586701473358294, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
       propertyPath: m_Name
       value: Interactions.AngularTransformDrive_Wheel
@@ -276,8 +284,40 @@ PrefabInstance:
       propertyPath: TargetValueReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2448744079595617656, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: grabOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448744079595617656, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: followTracking
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606411769129453936, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: m_AngularDrag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606411769129453936, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: m_Constraints
+      value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606411769129453936, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606411769129453936, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763570561051037854, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: validInteractionTypes
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4763570561051037854, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
       propertyPath: attemptSwapSecondaryForPrimaryOnPrimaryDrop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058145828584531684, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+      propertyPath: processMoment
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5969661976345957559, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
@@ -368,6 +408,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8156667450232859232, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
+    - {fileID: 6804138752502721123, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6387159395818230200, guid: df854889ba8b3b248bf96424a3b89e17, type: 3}
       insertIndex: -1
@@ -400,6 +441,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2021018584231167133}
     m_Modifications:
+    - target: {fileID: 1558077894421509879, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: applyToAxis.zState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558077894421509879, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: sourceMultiplier.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2857845961663347754, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -442,15 +491,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3607323991379943426, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
       propertyPath: grabOffset
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3607323991379943426, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
       propertyPath: followTracking
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3607323991379943426, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: isKinematicWhenInactive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5701689818747509894, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
       propertyPath: m_Name
       value: Interactable.GrabAction.Follow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180699135771327390, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: processMoment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
