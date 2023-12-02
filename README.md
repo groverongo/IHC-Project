@@ -1,7 +1,7 @@
 # Simulador de Touring - Instrucciones de compilación & ejecución
 1. Clonar el repositorio
 2. Proceder a **Build Settings**
-3. Elegir la opción **Windows, Max y Linux**
+3. Elegir la opción **Windows, Mac y Linux**
 4. Escoger las escenas:
    1. Scenes/MenuFinalFinal
    2. Scenes/Circuito
