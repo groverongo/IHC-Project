@@ -7,6 +7,7 @@ public class ForcePosition : MonoBehaviour
     //create a position object 
 
     public Vector3 defaultPosition;
+    public GameObject parent;
     //Vector3(-0.425291121,0.739410996,-0.182469025)
 
 
@@ -15,7 +16,8 @@ public class ForcePosition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        defaultPosition =  transform.position - transform.parent.position ;
+        defaultPosition =  transform.position - parent.transform.position ;
+
         
     }
 
@@ -23,10 +25,14 @@ public class ForcePosition : MonoBehaviour
     void Update()
     {
         //get the position of the parent object
-        Vector3 parentPosition = transform.parent.position;
+        Vector3 parentPosition = parent.transform.position;
 
         //set the position of the object to the parent position
-        transform.position = parentPosition + defaultPosition;
+        // transform.position = parentPosition + defaultPosition;
+        // transorm set local position
+        transform.localPosition = new Vector3(0,0,0);
+
+        Debug.Log("Parent Position: "  + transform.position.ToString());
         
     }
 }
