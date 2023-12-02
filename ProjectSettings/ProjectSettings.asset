@@ -8,7 +8,7 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -134,7 +134,11 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: 2ecdd3a6a6839e94d9168986e69eebd8, type: 2}
+  - {fileID: 5765141993767398654, guid: b325879ef0925064c8147f39b0a005e3, type: 2}
+  - {fileID: 11400000, guid: 499c2d2223b7fe743bf85d8211a5936a, type: 2}
+  - {fileID: -1622341371606654690, guid: d0c5b7d94833f47439884f682afe95c4, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
